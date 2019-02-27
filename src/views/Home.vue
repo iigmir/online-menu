@@ -1,19 +1,29 @@
 <template>
-    <div class="home">
-        <img src="https://fakeimg.pl/300/">
-        <h1>Online Menu</h1>
-        <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+    <div class="ts container home">
+        <h1 class="ts center aligned header">Online Menu</h1>
+        <div v-for="item in list" :key="item.id" >
+            <item-card v-bind:item="item" />
+        </div>
     </div>
 </template>
 
 <script>
 // @ is an alias to /src
-// import HelloWorld from '@/components/HelloWorld.vue'
+import API from "@/assets/api.json";
+import ItemCard from "../components/ItemCard.vue";
 
 export default {
     name: "home",
     components: {
-        // HelloWorld
+        ItemCard
+    },
+    data() {
+        return {
+            list: []
+        };
+    },
+    created() {
+        this.list = API;
     }
 };
 </script>
