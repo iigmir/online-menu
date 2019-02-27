@@ -5,9 +5,8 @@
                 <img v-bind:src="item.image">
             </div>
             <div class="content">
-                <p>你將會在這裡看見一個魔法師的日常生活，</p>
-                <p>沒錯，只要你能夠單身三十年，</p>
-                <p>你也可以跟我一樣成為魔法師。</p>
+                <h2> {{ item.name }} </h2>
+                <p v-if="need_notice"> Notice: {{ item.notice }} </p>
             </div>
         </div>
     </div>
@@ -16,10 +15,19 @@
 <script>
 export default
 {
-    props: {
-        item: {
+    props:
+    {
+        item:
+        {
             type: Object,
             default() { return {}; }
+        }
+    },
+    computed:
+    {
+        need_notice()
+        {
+            return this.item.notice !== "";
         }
     }
 };

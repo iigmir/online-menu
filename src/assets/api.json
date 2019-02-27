@@ -2,30 +2,36 @@
     "image": "https://fakeimg.pl/200/?text=CafèLatte",
     "name": "Cafè Latte",
     "can_use": ["suger"],
-    "id": "123"
+    "id": "123",
+    "notice": "Hot only"
 },{
     "image": "https://fakeimg.pl/200/?text=MilkTea",
     "name": "Milk tea",
     "can_use": ["suger", "ice"],
-    "id": "456"
+    "id": "456",
+    "notice": ""
 },{
     "image": "https://fakeimg.pl/200/?text=BubbleTea",
     "name": "Bubble tea",
     "can_use": ["ice"],
-    "id": "789"
+    "id": "789",
+    "notice": "Ful suger only"
 },{
     "image": "https://fakeimg.pl/200/?text=BlackTea",
     "name": "Black tea",
     "can_use": ["suger", "ice"],
-    "id": "024"
+    "id": "024",
+    "notice": ""
 },{
     "image": "https://fakeimg.pl/200/?text=GreenTea",
     "name": "Green tea",
     "can_use": ["suger", "ice"],
-    "id": "943"
+    "id": "943",
+    "notice": ""
 },{
     "image": "https://fakeimg.pl/200/?text=Special",
     "name": "Today's special",
     "can_use": [],
-    "id": "666"
+    "id": "666",
+    "notice": "Hot only, No suger only"
 }]
