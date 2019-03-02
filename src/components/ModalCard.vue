@@ -10,9 +10,58 @@
                     <img v-bind:src="item.image">
                 </div>
                 <div class="description">
-                    <div class="ts header">我們在照片中偵測到了你。</div>
-                    <p>這張照片看起來裡面包含著你的人像，如果你願意的話我們可以自動將該照片發佈至 <a href="https://www.gravatar.com" target="_blank">gravatar</a> 並替換你原先的頭像。</p>
-                    <p>你希望這麼做嗎？</p>
+                    <div class="suger field" v-if="item_has.suger">
+                        <p> 糖量 </p>
+                        <div class="ts compact horizontal checkboxes">
+                            <div class="ts radio checkbox">
+                                <input id="suger-full" type="radio" name="suger" value="10">
+                                <label for="suger-full">正常</label>
+                            </div>
+                            <div class="ts radio checkbox">
+                                <input id="suger-less" type="radio" name="suger" value="8">
+                                <label for="suger-less">少糖</label>
+                            </div>
+                            <div class="ts radio checkbox">
+                                <input id="suger-half" type="radio" name="suger" value="5">
+                                <label for="suger-half">半糖</label>
+                            </div>
+                            <div class="ts radio checkbox">
+                                <input id="suger-little" type="radio" name="suger" value="3">
+                                <label for="suger-little">微糖</label>
+                            </div>
+                            <div class="ts radio checkbox">
+                                <input id="suger-none" type="radio" name="suger" value="0">
+                                <label for="suger-none">無糖</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ice field" v-if="item_has.ice">
+                        <p> 糖量 </p>
+                        <div class="ts compact horizontal checkboxes">
+                            <div class="ts radio checkbox">
+                                <input id="ice-full" type="radio" name="ice" value="10">
+                                <label for="ice-full">正常</label>
+                            </div>
+                            <div class="ts radio checkbox">
+                                <input id="ice-less" type="radio" name="ice" value="8">
+                                <label for="ice-less">少糖</label>
+                            </div>
+                            <div class="ts radio checkbox">
+                                <input id="ice-half" type="radio" name="ice" value="5">
+                                <label for="ice-half">半糖</label>
+                            </div>
+                            <div class="ts radio checkbox">
+                                <input id="ice-little" type="radio" name="ice" value="3">
+                                <label for="ice-little">微糖</label>
+                            </div>
+                            <div class="ts radio checkbox">
+                                <input id="ice-none" type="radio" name="ice" value="0">
+                                <label for="ice-none">無糖</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ts divider"></div>
+                    <p v-if="item.notice !== ''"> {{ item.notice }} </p>
                 </div>
             </div>
             <div class="actions">
@@ -31,6 +80,16 @@ export default {
         {
             type: Object,
             default() { return {}; }
+        }
+    },
+    computed:
+    {
+        item_has()
+        {
+            return {
+                suger: this.item.can_use.some( text => text === "suger" ),
+                ice: this.item.can_use.some( text => text === "ice" ),
+            };
         }
     },
     methods:

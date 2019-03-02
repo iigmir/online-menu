@@ -15,7 +15,7 @@
     "name": "Bubble tea",
     "can_use": ["ice"],
     "id": "789",
-    "notice": "Ful suger only"
+    "notice": "Full suger only"
 },{
     "image": "https://fakeimg.pl/200/?text=BlackTea",
     "name": "Black tea",
