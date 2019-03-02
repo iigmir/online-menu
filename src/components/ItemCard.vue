@@ -37,7 +37,8 @@ export default
 .ts.card
 {
     flex-direction: row;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
     &:not(.borderless) > .image:first-child img
     {
         border-radius: 0;
