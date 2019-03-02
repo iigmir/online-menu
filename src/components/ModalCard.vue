@@ -65,8 +65,8 @@
                 </div>
             </div>
             <div class="actions">
-                <button class="ts inverted basic deny button" v-on:click="close"> 不 </button>
-                <button class="ts inverted basic positive button"> 是的 </button>
+                <button class="ts negative button" v-on:click="close"> 取消 </button>
+                <button class="ts positive button"> 確認增加 </button>
             </div>
         </dialog>
     </div>
@@ -106,5 +106,10 @@ export default {
 .ts.header
 {
     margin-top: 0;
+}
+
+.ts.button
+{
+    font-weight: 400;
 }
 </style>
