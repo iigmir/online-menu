@@ -1,7 +1,7 @@
 <template>
     <div class="ts modals dimmer active">
         <dialog id="modal" class="ts modal" open>
-            <i class="close icon" v-on:click="close"></i>
+            <i class="close icon" v-on:click="cancel()"></i>
             <div class="ts header">
                 <h3> {{ item.name }} </h3>
             </div>
@@ -65,7 +65,7 @@
                 </div>
             </div>
             <div class="actions">
-                <button class="ts negative button" v-on:click="close"> 取消 </button>
+                <button class="ts negative button" v-on:click="cancel()"> 取消 </button>
                 <button class="ts positive button"> 確認增加 </button>
             </div>
         </dialog>
@@ -94,9 +94,9 @@ export default {
     },
     methods:
     {
-        close()
+        cancel()
         {
-            this.$emit("clean");
+            this.$emit("clean_notice", "已取消。");
         }
     }
 }
