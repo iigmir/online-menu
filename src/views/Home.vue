@@ -95,17 +95,21 @@ export default {
         },
         final_decision(decision)
         {
+            let notice = decision.text;
+            let num = "0";
             if(decision.ordered === true)
             {
                 console.log({ ajax: this.order_list });
+                num = "1024"
+                notice = "已訂購，號碼為：" + num;
                 this.order_list = [];
             }
             this.in_checkout = false;
-            this.clean_notice(decision.text);
+            this.clean_notice(notice);
         },
         delete_order_item(index)
         {
-            let order_list = this.this.order_list;
+            let order_list = this.order_list;
             order_list.splice(index, 1);
             this.order_list = order_list;
         }

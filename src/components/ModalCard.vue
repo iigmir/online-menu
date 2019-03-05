@@ -117,8 +117,6 @@ export default {
         },
         submit()
         {
-            this.ice = "10";
-            this.suger = "10";
             this.$emit("submit", this.submit_item);
         }
     }

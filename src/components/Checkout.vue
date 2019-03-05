@@ -7,9 +7,16 @@
             </div>
             <div class="content">
                 <ul class="ts list">
-                    <!-- <li>七波白音</li> -->
-                    <li v-for="(item, index) in order_list" :key="index">
-                        {{ item }}
+                    <li class="item" v-for="(item, index) in order_list" :key="index">
+                        <i class="close icon" v-on:click="delete_order_item(index)"></i>
+                        <div class="content">
+                            <div class="header">
+                                {{ item.amount }} 個 {{ item.item.name }}
+                            </div>
+                            <div class="description">
+                                糖：{{ item.suger }}、冰：{{ item.ice }}
+                            </div>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -56,6 +63,10 @@ export default {
             };
             this.$emit("final_decision", decision);
         },
+        delete_order_item(index)
+        {
+            this.$emit("delete_order_item", index);
+        }
     }
 }
 </script>
@@ -69,5 +80,10 @@ export default {
 .ts.button
 {
     font-weight: 400;
+}
+
+.close.icon
+{
+    cursor: pointer;
 }
 </style>
