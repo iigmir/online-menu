@@ -6,17 +6,19 @@
             v-on:clean_notice="clean_notice"
             v-on:submit="submit"
         />
+        <checkout v-if="in_checkout" v-bind:order_list="order_list" />
         <div class="clear-gap">
             <h1 class="ts center aligned header"> 線上點飲料 </h1>
-            <button class="ts primary center aligned button">結帳</button>
+            <button class="ts primary center aligned button" v-on:click="set_checkout(true)">結帳</button>
         </div>
         <div
             class="item-cursor"
-            v-for="item in list" :key="item.id"
+            v-for="item in menu_list" :key="item.id"
             v-on:click="choose_item(item)">
             <item-card v-bind:item="item" />
         </div>
-        <div class="ts bottom right snackbar" v-bind:class="{'active':order_noticed}">
+        <div class="ts bottom right snackbar"
+            v-bind:class="{ 'active': order_noticed }">
             <div class="content"> {{ notice_text }} </div>
         </div>
     </div>
@@ -27,27 +29,30 @@
 import API from "@/assets/api.json";
 import ItemCard from "../components/ItemCard.vue";
 import ModalCard from "../components/ModalCard.vue";
+import Checkout from "../components/Checkout.vue";
 
 export default {
     name: "Home",
     components:
     {
+        Checkout,
         ItemCard,
         ModalCard
     },
     data()
     {
         return {
-            list: [],
+            menu_list: [],
             order_list: [],
             chosed_item: {},
-            order_noticed: false,
             notice_text: "",
+            in_checkout: false,
+            order_noticed: false,
         };
     },
     created()
     {
-        this.list = API;
+        this.menu_list = API;
     },
     methods:
     {
@@ -71,6 +76,14 @@ export default {
                 this.notice_text = "";
                 return;
             }, 1000);
+        },
+        lets_checkout(bool)
+        {
+            if( typeof(bool) !== "boolean" )
+            {   // If not boolean, set it false.
+                bool = false;
+            }
+            this.in_checkout = bool;
         }
     }
 };
