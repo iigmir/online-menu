@@ -67,7 +67,7 @@ export default {
         },
         submit(item)
         {
-            let order_list = this.this.order_list;
+            let order_list = this.order_list;
             order_list.push(item);
             this.order_list = order_list;
             this.clean_notice("已加入");
@@ -84,13 +84,14 @@ export default {
                 return;
             }, 1000);
         },
-        set_checkout(bool)
+        set_checkout()
         {
-            if( typeof(bool) !== "boolean" )
-            {   // If not boolean, set it false.
-                bool = false;
+            if( this.order_list.length < 1 )
+            {
+                this.clean_notice("請至少選一個飲料！");
+                return;
             }
-            this.in_checkout = bool;
+            this.in_checkout = true;
         },
         final_decision(decision)
         {
@@ -99,7 +100,7 @@ export default {
                 console.log({ ajax: this.order_list });
                 this.order_list = [];
             }
-            this.set_checkout(false);
+            this.in_checkout = false;
             this.clean_notice(decision.text);
         },
         delete_order_item(index)

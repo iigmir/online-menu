@@ -36,7 +36,7 @@
                         </div>
                     </div>
                     <div class="ice field" v-if="item_has.ice">
-                        <p> 糖量 </p>
+                        <p> 冰量 </p>
                         <div class="ts compact horizontal checkboxes">
                             <div class="ts radio checkbox">
                                 <input id="ice-full" type="radio" name="ice" value="10" v-model="ice">
@@ -44,19 +44,19 @@
                             </div>
                             <div class="ts radio checkbox">
                                 <input id="ice-less" type="radio" name="ice" value="8" v-model="ice">
-                                <label for="ice-less">少糖</label>
+                                <label for="ice-less">少冰</label>
                             </div>
                             <div class="ts radio checkbox">
                                 <input id="ice-half" type="radio" name="ice" value="5" v-model="ice">
-                                <label for="ice-half">半糖</label>
+                                <label for="ice-half">半冰</label>
                             </div>
                             <div class="ts radio checkbox">
                                 <input id="ice-little" type="radio" name="ice" value="3"  v-model="ice">
-                                <label for="ice-little">微糖</label>
+                                <label for="ice-little">微冰</label>
                             </div>
                             <div class="ts radio checkbox">
                                 <input id="ice-none" type="radio" name="ice" value="0" v-model="ice">
-                                <label for="ice-none">無糖</label>
+                                <label for="ice-none">去冰</label>
                             </div>
                         </div>
                     </div>
