@@ -6,6 +6,9 @@
                 <h3> 訂購確認 </h3>
             </div>
             <div class="content">
+                <ul class="ts list">
+                    <li>七波白音</li>
+                </ul>
             </div>
             <div class="actions">
                 <button class="ts negative button" v-on:click="cancel()"> 取消訂購 </button>
