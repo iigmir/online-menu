@@ -4,6 +4,7 @@
             v-if="chosed_item.hasOwnProperty('id')"
             v-bind:item="chosed_item"
             v-on:clean_notice="clean_notice"
+            v-on:submit="submit"
         />
         <div class="clear-gap">
             <h1 class="ts center aligned header"> 線上點飲料 </h1>
@@ -38,12 +39,14 @@ export default {
     {
         return {
             list: [],
+            order_list: [],
             chosed_item: {},
             order_noticed: false,
-            notice_text: ""
+            notice_text: "",
         };
     },
-    created() {
+    created()
+    {
         this.list = API;
     },
     methods:
@@ -52,12 +55,13 @@ export default {
         {
             this.chosed_item = item;
         },
+        submit(item)
+        {
+            this.order_list.push(item);
+            this.clean_notice("已加入");
+        },
         clean_notice(input_text)
         {
-            if( input_text === "" )
-            {
-                debugger;
-            }
             this.chosed_item = {};
             this.order_noticed = !this.order_noticed;
             this.notice_text = input_text;
