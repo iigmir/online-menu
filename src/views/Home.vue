@@ -10,6 +10,7 @@
             v-if="in_checkout"
             v-bind:order_list="order_list"
             v-on:final_decision="final_decision"
+            v-on:delete_order_item="delete_order_item"
         />
         <div class="clear-gap">
             <h1 class="ts center aligned header"> 線上點飲料 </h1>
@@ -93,11 +94,15 @@ export default {
         },
         final_decision(decision)
         {
-            this.order_list = decision.order_list;
+            if(decision.ordered === true)
+            {
+                console.log({ ajax: this.order_list });
+                this.order_list = [];
+            }
             this.set_checkout(false);
             this.clean_notice(decision.text);
         },
-        delete_order_list(index)
+        delete_order_item(index)
         {
             let order_list = this.this.order_list;
             order_list.splice(index, 1);

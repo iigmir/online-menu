@@ -7,7 +7,10 @@
             </div>
             <div class="content">
                 <ul class="ts list">
-                    <li>七波白音</li>
+                    <!-- <li>七波白音</li> -->
+                    <li v-for="(item, index) in order_list" :key="index">
+                        {{ item }}
+                    </li>
                 </ul>
             </div>
             <div class="actions">
@@ -37,6 +40,22 @@ export default {
     },
     methods:
     {
+        cancel()
+        {
+            let decision = {
+                ordered: false,
+                text: "已取消",
+            };
+            this.$emit("final_decision", decision);
+        },
+        submit()
+        {
+            let decision = {
+                ordered: true,
+                text: "已訂購"
+            };
+            this.$emit("final_decision", decision);
+        },
     }
 }
 </script>
