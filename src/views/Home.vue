@@ -13,8 +13,14 @@
             v-on:delete_order_item="delete_order_item"
         />
         <div class="clear-gap">
-            <h1 class="ts center aligned header"> 線上點飲料 </h1>
-            <button class="ts primary center aligned button" v-on:click="set_checkout(true)">結帳</button>
+            <h1 class="ts center aligned header">
+                線上點飲料
+            </h1>
+            <button
+                class="ts primary center aligned button"
+                v-on:click="set_checkout(true)">
+                結帳
+            </button>
         </div>
         <div
             class="item-cursor"
@@ -22,7 +28,8 @@
             v-on:click="choose_item(item)">
             <item-card v-bind:item="item" />
         </div>
-        <div class="ts bottom right snackbar"
+        <div
+            class="ts bottom right snackbar"
             v-bind:class="{ 'active': order_noticed }">
             <div class="content"> {{ notice_text }} </div>
         </div>

@@ -60,8 +60,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="ts divider"></div>
-                    <p v-if="item.notice !== ''"> {{ item.notice }} </p>
+                    <div class="ts divider"  v-if="has_notice"></div>
+                    <p v-if="has_notice"> {{ item.notice }} </p>
                 </div>
             </div>
             <div class="actions">
@@ -107,6 +107,10 @@ export default {
                 suger: this.suger,
                 amount: this.amount
             };
+        },
+        has_notice()
+        {
+            return this.item.notice !== "";
         }
     },
     methods:
