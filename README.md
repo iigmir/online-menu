@@ -1,5 +1,7 @@
 # online-menu
 
+A small side-project in response for question, "How can you make a online order page?".
+
 ## Project setup
 ```
 npm install
